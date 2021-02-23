@@ -159,7 +159,13 @@ module.exports = [
     },
     optimization: {
       splitChunks: {
-        chunks: 'all'
+        chunks: 'all',
+        cacheGroups: {
+          jlab_core: {
+            test: /[\\/]node_modules[\\/]@(jupyterlab|lumino|phosphor)[\\/]/,
+            name: 'jlab_core'
+          }
+        }
       }
     },
     module: {
